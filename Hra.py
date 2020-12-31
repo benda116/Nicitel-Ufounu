@@ -1,13 +1,15 @@
 # Jenda Razák 
 # 31.12 2020
 # Freeware, můžete si s tím dělat co chcete, jen zachovat credit 
-# (je to uděláno pomoci tutorialu na YT)
-# Verze 1.0.1
+# (je to uděláno pomoci tutorialu na Youtube)
+# Verze 2.0.0
 
 import turtle
 import os
 import math
 import random
+
+pocet_nepratel = 30
 
 # Vytvoření okna
 obrazovka = turtle.Screen()
@@ -48,6 +50,16 @@ skorestring = "Skóre: {}" .format(skore)
 skorepen.write(skorestring, False, align="left", font = ("Arial", 14, "normal"))
 skorepen.hideturtle()
 
+# Konec hry
+
+konechry = turtle.Turtle()
+konechry.speed = 0
+konechry.color("white")
+konechry.penup()
+konechry.setposition(-165,-10)
+konechrystring = "Konec hry, vaše skóre: {}".format(skore)
+konechry.write(konechrystring, False, align="left", font = ("Arial",25,"normal"))
+konechry.hideturtle()
 
 # Hráč   
 hrac = turtle.Turtle() 
@@ -106,8 +118,6 @@ obrazovka.onkeypress(vystrel, "w")
 
 # Nepřátelé
 
-pocet_nepratel = 30
-
 nepratele = []
 
 for i in range(pocet_nepratel):
@@ -116,6 +126,7 @@ for i in range(pocet_nepratel):
 nepritel_start_x = -225
 nepritel_start_y = 250
 nepritel_cislo = 0
+pocetnepratel = 0
 
 for nepritel in nepratele:
     nepritel.color("red")
@@ -126,6 +137,7 @@ for nepritel in nepratele:
     y = nepritel_start_y
     nepritel.setposition(x, y)   
     nepritel_cislo += 1
+    pocetnepratel += 1
     if nepritel_cislo == 10:
         nepritel_start_y -= 50
         nepritel_cislo = 0
@@ -184,6 +196,7 @@ while True:
 
             nepritel.setposition(0, 10000)   
 
+            pocetnepratel -= 1
             skore += 5
             skorestring = "Skóre: {}" .format(skore)          
             skorepen.clear()
@@ -195,7 +208,15 @@ while True:
             print("Konec hry")
             break
   
-     
+    # Eliminace po konci
+
+    if pocetnepratel < 1:
+        konechry.clear()   
+        konechrystring = "Konec hry, vaše skóre: {}".format(skore)
+        konechry.write(konechrystring, False, align="left", font = ("Arial",25,"normal"))
+    else:
+        konechry.clear()
+
     # Výstřel kulky    
     if stavKulky == "fire":
         y = kulka.ycor()
@@ -205,3 +226,5 @@ while True:
     if kulka.ycor() > 275:
         kulka.hideturtle()
         stavKulky = "ready"
+
+#dealy = input("Enter pro opuštění")
