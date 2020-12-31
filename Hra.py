@@ -2,7 +2,7 @@
 # 31.12 2020
 # Freeware, můžete si s tím dělat co chcete, jen zachovat credit 
 # (je to uděláno pomoci tutorialu na YT)
-
+# Verze 1.0.1
 
 import turtle
 import os
