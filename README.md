@@ -1,6 +1,7 @@
 # Nicitel-Ufounu aka Zab si svého alzáka
 
-https://uloz.to/file/kCxXjocuC7br/nicitel-ufonu-1-0-1-rar
+# Verze 1.0.1 https://uloz.to/file/kCxXjocuC7br/nicitel-ufonu-1-0-1-rar
+# Verze 2.0.0 https://uloz.to/file/f4a56em3AaSX/nicitel-ufonu-2-0-0-rar (předělaný script + koncová obrazovka/nápis)
 
 # Jenda Razák 31.12 2020
 
